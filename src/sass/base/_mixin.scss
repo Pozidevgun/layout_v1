@@ -1,5 +1,5 @@
 @mixin media-query($media){
-  @media (max-width: $media + px){
+  @media (min-width: $media + px){
     @content;
   }
 }

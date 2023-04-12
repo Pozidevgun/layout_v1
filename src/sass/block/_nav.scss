@@ -1,0 +1,123 @@
+.nav {
+  margin-right: 24px;
+  color: #fff;
+  display: none;
+
+  @include media-query(767) {
+    display: block;
+  }
+  &__list {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  &__item {
+    @include media-query(767) {
+      margin-right: 24px;
+      &:last-child {
+        margin-right: 0px;
+      }
+    }
+  }
+  &__link {
+    text-decoration: underline;
+    text-decoration-color: transparent;
+    transition: 0.2s;
+  }
+  &__link:hover {
+    text-decoration-color: #fff;
+
+    /*add those for opera and mozilla support*/
+    -webkit-text-decoration-color: #fff;
+    -moz-text-decoration-color: #fff;
+  }
+
+  &--active {
+    display: block;
+    position: absolute;
+    top: 100%;
+    left: 0px;
+    background: $main;
+    width: 100%;
+    & .nav__list {
+      display: block;
+    }
+    & .nav__item {
+      padding: 0px 20px;
+      transition: all 0.2s;
+    }
+    & .nav__item:hover {
+      background-color: #fff;
+      color: $main;
+    }
+  }
+}
+.burger {
+  display: flex;
+  align-items: center;
+  background-color: transparent;
+  border: none;
+  position: relative;
+  width: 40px;
+  height: 23px;
+  cursor: pointer;
+
+  transition: all 0.2s;
+  @include media-query(767) {
+    display: none;
+  }
+  &::after {
+    position: absolute;
+    content: "";
+    left: 0;
+    bottom: 0;
+    width: 40px;
+    height: 3px;
+    background-color: #fff;
+  }
+  &::before {
+    position: absolute;
+    content: "";
+    left: 0;
+    top: 0;
+    width: 40px;
+    height: 3px;
+    background-color: #fff;
+  }
+  & span {
+    display: block;
+    width: 40px;
+    height: 3px;
+    background-color: #fff;
+  }
+  &--active {
+    &::after {
+      position: absolute;
+      content: "";
+      left: 0;
+      top: 10px;
+      width: 40px;
+      height: 3px;
+      transform: rotate(135deg);
+      transition: rotate 0.2s;
+      background-color: #fff;
+    }
+    &::before {
+      position: absolute;
+      content: "";
+      left: 0;
+      top: 10px;
+      width: 40px;
+      height: 3px;
+      background-color: #fff;
+      transform: rotate(-135deg);
+      transition: rotate 0.2s;
+    }
+    & span {
+      display: none;
+      width: 40px;
+      height: 3px;
+      background-color: #fff;
+    }
+  }
+}

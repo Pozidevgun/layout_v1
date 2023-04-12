@@ -1,4 +1,27 @@
-.button{
-   
-
+.button {
+  font-family: 'Sen', sans-serif;
+  border: none;
+  padding: 16px 48px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: 0.2s;
+  &--white {
+    background-color: #fff;
+    &:hover {
+      background-color:#FBF6EA;
+    }  
+  }
+  &[data-subsctibe] {
+    display: none;
+    @include media-query(767) {
+      display: block;
+    }
+  }
+  &--yellow {
+    background-color: $button-color;
+    color: $main;
+    &:hover {
+      background-color: $button-hover;
+    }
+  }
 }
